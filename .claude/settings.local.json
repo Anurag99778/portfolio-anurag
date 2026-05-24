@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(chromium-cli --session portfolio)",
+      "Bash(chromium-cli --session skills-check)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git branch *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git config *)"
+    ]
+  }
+}
