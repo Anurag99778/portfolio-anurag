@@ -122,7 +122,7 @@ const PORTFOLIO_DATA = {
     },
     {
       degree: "Class 10th",
-      school: "Madhav Vidyalaya Mandir",
+      school: "Maharishi Vidya Mandir",
       board: "CBSE Board",
       score: "88%",
       year: "2019"
