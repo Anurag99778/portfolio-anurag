@@ -471,6 +471,62 @@
     }
     .soc-btn svg { width: 18px; height: 18px; fill: currentColor; }
 
+    .soc-btn[data-platform="github"] {
+      border-color: rgba(226,232,240,0.35);
+      color: #e2e8f0;
+      background: rgba(226,232,240,0.06);
+      box-shadow: 0 0 14px rgba(226,232,240,0.1);
+    }
+    .soc-btn[data-platform="github"]:hover {
+      border-color: #e2e8f0;
+      color: #ffffff;
+      background: rgba(226,232,240,0.14);
+      box-shadow: 0 0 28px rgba(226,232,240,0.35);
+      transform: translateY(-4px) scale(1.08);
+    }
+
+    .soc-btn[data-platform="linkedin"] {
+      border-color: rgba(0,119,181,0.5);
+      color: #0A66C2;
+      background: rgba(0,119,181,0.08);
+      box-shadow: 0 0 14px rgba(0,119,181,0.2);
+    }
+    .soc-btn[data-platform="linkedin"]:hover {
+      border-color: #0A66C2;
+      color: #0A66C2;
+      background: rgba(0,119,181,0.15);
+      box-shadow: 0 0 28px rgba(0,119,181,0.5);
+      transform: translateY(-4px) scale(1.08);
+    }
+
+    .soc-btn[data-platform="leetcode"] {
+      border-color: rgba(255,161,22,0.45);
+      color: #FFA116;
+      background: rgba(255,161,22,0.08);
+      box-shadow: 0 0 14px rgba(255,161,22,0.2);
+    }
+    .soc-btn[data-platform="leetcode"]:hover {
+      border-color: #FFA116;
+      color: #FFA116;
+      background: rgba(255,161,22,0.15);
+      box-shadow: 0 0 28px rgba(255,161,22,0.5);
+      transform: translateY(-4px) scale(1.08);
+    }
+
+    .soc-btn[data-platform="whatsapp"] {
+      border-color: rgba(37,211,102,0.45);
+      color: #25D366;
+      background: rgba(37,211,102,0.08);
+      box-shadow: 0 0 14px rgba(37,211,102,0.2);
+    }
+    .soc-btn[data-platform="whatsapp"]:hover {
+      border-color: #25D366;
+      color: #25D366;
+      background: rgba(37,211,102,0.15);
+      box-shadow: 0 0 28px rgba(37,211,102,0.5);
+      transform: translateY(-4px) scale(1.08);
+    }
+
     /* Hero photo */
     .hero-photo-col {
       display: flex;
@@ -1350,7 +1406,7 @@ function buildHeroHTML() {
   const socialOrder = ['github','linkedin','leetcode','whatsapp'];
   const socials = socialOrder
     .filter(k => links[k])
-    .map(k => `<a href="${links[k]}" target="_blank" rel="noopener noreferrer" class="soc-btn" aria-label="${k}">${ICONS[k]||''}</a>`)
+    .map(k => `<a href="${links[k]}" target="_blank" rel="noopener noreferrer" class="soc-btn" data-platform="${k}" aria-label="${k}">${ICONS[k]||''}</a>`)
     .join('');
   return `
     <!-- ========== SECTION: HERO ========== -->
