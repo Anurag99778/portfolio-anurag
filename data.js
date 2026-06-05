@@ -2,10 +2,13 @@ const PORTFOLIO_DATA = {
 
   personal: {
     name: "Anurag Choubey",
-    title: "Full-Stack Developer & AI Engineer",
-    taglines: ["Full-Stack Developer", "AI Engineer", "GenAI Builder",
-               "LLM Integration Expert", "Problem Solver"],
-    bio: "B.Tech IT graduate from SGSITS Indore. Currently working at Yash Technologies, Pune. I build intelligent systems, enterprise backends, and AI-powered products that solve real problems — from RAG chatbots to Oracle ERP automation.",
+    title: "Software Engineer | Backend & GenAI",
+    taglines: ["Backend Developer",
+"GenAI Developer",
+"Full-Stack Developer",
+"Oracle Cloud Developer",
+"Problem Solver"],
+    bio: "B.Tech Information Technology graduate from SGSITS Indore. Currently working at Yash Technologies, building enterprise applications,Automations, backend systems, and AI-powered solutions using Python, Flask, Oracle Cloud, and modern web technologies. Passionate about solving real-world problems through scalable software and Generative AI",
     email: "anurag.choubey03@gmail.com",
     phone: "+91 9977867818",
     photo: "photo.jpg",
