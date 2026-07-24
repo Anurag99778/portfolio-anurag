@@ -5,7 +5,7 @@ import { motion, useMotionValue, useMotionTemplate } from 'framer-motion';
  * Wraps any card content with a radial highlight that tracks the cursor
  * (revealed only inside the card via a mask) plus a glowing 1px gradient
  * border on hover. This is the reusable "premium card" building block used
- * across Projects, Skills, Achievements and Contact so every card in the
+ * across About, Experience, Projects, and Contact so every card in the
  * site shares one consistent, high-end interaction.
  */
 export default function SpotlightCard({ children, className = '', color = '#06b6d4', ...rest }) {

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { PORTFOLIO_DATA } from '../data/portfolio.js';
 
-const LINKS = ['About', 'Experience', 'Projects', 'Skills', 'Achievements', 'Contact'];
+const LINKS = ['About', 'Experience', 'Projects', 'Contact'];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);

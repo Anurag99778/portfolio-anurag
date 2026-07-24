@@ -5,7 +5,6 @@ export const PORTFOLIO_DATA = {
     taglines: [
       "AI & LLM Automation Engineer",
       "Python / FastAPI Backend Developer",
-      "Oracle Fusion ERP·HCM·SCM Specialist",
       "Agentic AI Systems Builder",
       "GenAI Problem Solver",
     ],
@@ -120,21 +119,6 @@ export const PORTFOLIO_DATA = {
       items: ["Playwright", "Git", "GitHub", "Postman", "Figma", "Linux", "Windows"],
     },
   },
-
-  certifications: [
-    "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
-    "Oracle Cloud Infrastructure 2025 Certified Generative AI Professional",
-    "Oracle Cloud Infrastructure 2025 Certified Data Science Professional",
-  ],
-
-  achievements: [
-    { icon: "🎯", stat: "Top 5%", label: "JEE Mains", sub: "Among 1 million+ candidates nationwide" },
-    { icon: "🏆", stat: "Top 20", label: "Nomura KakushIN 8.0", sub: "Finalist across all India" },
-    { icon: "⭐", stat: "Star Achiever", label: "Yash Technologies", sub: "Recognized for outstanding quarterly performance" },
-    { icon: "☁️", stat: "3x OCI", label: "Oracle Certified", sub: "AI Foundations · Generative AI Pro · Data Science" },
-    { icon: "📉", stat: "~45%", label: "QA Cost Reduction", sub: "Via AI-powered Oracle Fusion test automation" },
-    { icon: "📊", stat: "8.10", label: "CGPA", sub: "B.Tech IT — SGSITS Indore" },
-  ],
 
   education: [
     {

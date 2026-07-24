@@ -12,8 +12,6 @@ import TechMarquee from './components/TechMarquee.jsx';
 import About from './components/About.jsx';
 import Experience from './components/Experience.jsx';
 import Projects from './components/Projects.jsx';
-import Skills from './components/Skills.jsx';
-import Achievements from './components/Achievements.jsx';
 import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
 import BackToTop from './components/BackToTop.jsx';
@@ -80,8 +78,6 @@ export default function App() {
         <About />
         <Experience />
         <Projects />
-        <Skills />
-        <Achievements />
         <Contact />
       </main>
       <Footer />
