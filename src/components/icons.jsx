@@ -20,6 +20,18 @@ export const ICONS = {
   dl: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
   ),
+  mail: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="m2.5 6 9 6.5 9-6.5"/></svg>
+  ),
+  phone: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M4.5 3.5h3.2l1.6 5-2.3 1.6a13.3 13.3 0 0 0 6.3 6.3l1.6-2.3 5 1.6v3.2c0 1.1-.9 2-2 2A17.5 17.5 0 0 1 2.5 5.5c0-1.1.9-2 2-2Z"/></svg>
+  ),
+  mapPin: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M20 10.5c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10.5" r="2.8"/></svg>
+  ),
+  copy: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M4 16V4a2 2 0 0 1 2-2h12"/></svg>
+  ),
 };
 
 export const PLATFORM_STYLES = {

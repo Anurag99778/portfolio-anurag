@@ -54,14 +54,19 @@ export default function Hero() {
         <motion.div style={{ y: textY, opacity: fade }} className="text-center md:text-left order-2 md:order-1">
           <motion.div
             variants={fadeUp} custom={0.5} initial="hidden" animate="show"
-            className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-3.5 py-1.5 rounded-full text-[0.82rem] font-semibold mb-5"
+            className="inline-flex items-center gap-2.5 pl-2.5 pr-4 py-1.5 rounded-full glass border border-white/[0.08] mb-6"
           >
-            <motion.span
-              className="w-[7px] h-[7px] bg-emerald-400 rounded-full"
-              animate={{ scale: [1, 1.5, 1], opacity: [1, 0.6, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-            {personal.contact.available ? "Available for opportunities" : 'Currently employed'}
+            <span className="relative flex items-center justify-center w-4 h-4">
+              <motion.span
+                className="absolute w-full h-full rounded-full border border-accent-cyan/60"
+                animate={{ scale: [1, 2.1], opacity: [0.6, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: 'easeOut' }}
+              />
+              <span className="w-[6px] h-[6px] rounded-full bg-accent-cyan" />
+            </span>
+            <span className="text-[0.78rem] font-semibold text-slate-300 uppercase tracking-[0.08em]">
+              {personal.contact.available ? 'Available for opportunities' : 'Currently employed'}
+            </span>
           </motion.div>
 
           <motion.div variants={fadeUp} custom={0.6} initial="hidden" animate="show" className="text-slate-400 text-[1.05rem] mb-1">
