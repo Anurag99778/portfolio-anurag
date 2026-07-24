@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { PORTFOLIO_DATA } from '../data/portfolio.js';
 import SectionHeading from './SectionHeading.jsx';
+import SpotlightCard from './effects/SpotlightCard.jsx';
 
 export default function About() {
   const { personal, education } = PORTFOLIO_DATA;
@@ -16,15 +17,17 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.65 }}
-            className="glass rounded-2xl p-8"
+            className="glass rounded-2xl"
           >
-            <p className="text-slate-400 leading-[1.9] mb-5">{personal.bio}</p>
-            <p className="text-slate-100 leading-[1.8] text-[0.95rem]">
-              I thrive at the intersection of <strong className="text-accent-cyan font-semibold">AI engineering</strong> and{' '}
-              <em className="text-accent-violet not-italic font-semibold">enterprise backend systems</em> — building agentic
-              automation that is both intelligent and reliable. From orchestrating multi-agent RAG pipelines to shipping
-              FastAPI services for Oracle Fusion, every line of code serves a real purpose.
-            </p>
+            <SpotlightCard color="#8b5cf6" className="rounded-2xl p-8">
+              <p className="text-slate-400 leading-[1.9] mb-5">{personal.bio}</p>
+              <p className="text-slate-100 leading-[1.8] text-[0.95rem]">
+                I thrive at the intersection of <strong className="text-accent-cyan font-semibold">AI engineering</strong> and{' '}
+                <em className="text-accent-violet not-italic font-semibold">enterprise backend systems</em> — building agentic
+                automation that is both intelligent and reliable. From orchestrating multi-agent RAG pipelines to shipping
+                FastAPI services for Oracle Fusion, every line of code serves a real purpose.
+              </p>
+            </SpotlightCard>
           </motion.div>
 
           <div>

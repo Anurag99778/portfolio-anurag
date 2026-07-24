@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolio.js';
 import SectionHeading from './SectionHeading.jsx';
+import SpotlightCard from './effects/SpotlightCard.jsx';
 
 function ExpCard({ exp, side }) {
   return (
@@ -11,9 +12,10 @@ function ExpCard({ exp, side }) {
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       whileHover={{ y: -4, boxShadow: '0 16px 48px rgba(0,0,0,0.35)' }}
-      className={`bg-bg-card border border-white/[0.08] rounded-2xl p-6 md:p-7 ${side === 'left' ? 'md:text-right' : ''}`}
+      className={`bg-bg-card border border-white/[0.08] rounded-2xl ${side === 'left' ? 'md:text-right' : ''}`}
       style={{ borderTop: `3px solid ${exp.color}` }}
     >
+      <SpotlightCard color={exp.color} className="rounded-2xl p-6 md:p-7">
       <div className="font-display font-bold text-[1.05rem] mb-1">{exp.role}</div>
       <div className="text-[0.9rem] font-semibold mb-1" style={{ color: exp.color }}>
         {exp.company} &middot; {exp.location}
@@ -37,6 +39,7 @@ function ExpCard({ exp, side }) {
           </li>
         ))}
       </ul>
+      </SpotlightCard>
     </motion.div>
   );
 }

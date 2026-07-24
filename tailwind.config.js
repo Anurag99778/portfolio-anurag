@@ -16,8 +16,8 @@ export default {
         },
       },
       fontFamily: {
-        display: ['Syne', 'sans-serif'],
-        body: ['DM Sans', 'sans-serif'],
+        display: ['"Space Grotesk"', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
       },
       backgroundImage: {
         'grid-glow': 'radial-gradient(circle at 50% 0%, rgba(6,182,212,0.15), transparent 60%)',

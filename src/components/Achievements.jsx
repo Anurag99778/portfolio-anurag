@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useInView, animate } from 'framer-motion';
 import { PORTFOLIO_DATA } from '../data/portfolio.js';
 import SectionHeading from './SectionHeading.jsx';
+import SpotlightCard from './effects/SpotlightCard.jsx';
+
+const ACCENTS = ['#06b6d4', '#8b5cf6', '#f59e0b', '#10b981', '#3b82f6', '#ef4444'];
 
 function CountStat({ raw }) {
   const ref = useRef(null);
@@ -59,14 +62,16 @@ export default function Achievements() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
               whileHover={{ scale: 1.04, y: -5, boxShadow: '0 20px 50px rgba(0,0,0,0.35), 0 0 30px rgba(6,182,212,0.12)', borderColor: 'rgba(6,182,212,0.3)' }}
-              className="glass rounded-2xl p-7 text-center"
+              className="glass rounded-2xl text-center"
             >
+              <SpotlightCard color={ACCENTS[i % ACCENTS.length]} className="rounded-2xl p-7">
               <div className="text-4xl mb-3">{a.icon}</div>
               <div className="font-display font-extrabold text-[1.6rem] md:text-[2rem] text-gradient mb-1">
                 <CountStat raw={a.stat} />
               </div>
               <div className="font-semibold text-[0.97rem] mb-1">{a.label}</div>
               <div className="text-slate-400 text-[0.8rem] leading-snug">{a.sub}</div>
+              </SpotlightCard>
             </motion.div>
           ))}
         </div>
