@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { PORTFOLIO_DATA } from '../data/portfolio.js';
 import SectionHeading from './SectionHeading.jsx';
+import SpotlightCard from './effects/SpotlightCard.jsx';
 
 const CAT_ICONS = {
   'AI / LLM': '🤖',
@@ -23,6 +24,7 @@ function SkillCard({ cat, data, i }) {
       whileHover={{ y: -6, boxShadow: `0 20px 50px rgba(0,0,0,0.3), 0 0 32px ${c}28`, borderColor: `${c}55` }}
       className="bg-bg-card border border-white/[0.08] rounded-2xl overflow-hidden"
     >
+      <SpotlightCard color={c} className="rounded-2xl">
       <div className="h-[3px] w-full" style={{ background: `linear-gradient(90deg,${c},#8b5cf6,${c})`, backgroundSize: '200% auto' }} />
       <div className="flex items-center gap-2.5 px-5 pt-4 pb-3.5 border-b border-white/[0.08]">
         <span className="text-[1.2rem]">{CAT_ICONS[cat] || '🔹'}</span>
@@ -49,6 +51,7 @@ function SkillCard({ cat, data, i }) {
           </motion.span>
         ))}
       </div>
+      </SpotlightCard>
     </motion.div>
   );
 }

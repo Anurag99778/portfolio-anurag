@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useTransform, useMotionTemplate } from 'framer-motion';
 import { PORTFOLIO_DATA } from '../data/portfolio.js';
 import SectionHeading from './SectionHeading.jsx';
 import { ICONS } from './icons.jsx';
@@ -6,13 +6,18 @@ import { ICONS } from './icons.jsx';
 function ProjectCard({ p, i }) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+  const px = useMotionValue(0);
+  const py = useMotionValue(0);
   const rotateX = useTransform(y, [-0.5, 0.5], [7, -7]);
   const rotateY = useTransform(x, [-0.5, 0.5], [-7, 7]);
+  const spotlight = useMotionTemplate`radial-gradient(360px circle at ${px}px ${py}px, rgba(6,182,212,0.14), transparent 75%)`;
 
   function handleMove(e) {
     const rect = e.currentTarget.getBoundingClientRect();
     x.set((e.clientX - rect.left) / rect.width - 0.5);
     y.set((e.clientY - rect.top) / rect.height - 0.5);
+    px.set(e.clientX - rect.left);
+    py.set(e.clientY - rect.top);
   }
   function handleLeave() {
     x.set(0);
@@ -29,8 +34,12 @@ function ProjectCard({ p, i }) {
       onMouseLeave={handleLeave}
       style={{ rotateX, rotateY, transformPerspective: 900 }}
       whileHover={{ scale: 1.02 }}
-      className="bg-bg-card border border-white/[0.08] rounded-2xl overflow-hidden cursor-hover"
+      className="relative bg-bg-card border border-white/[0.08] rounded-2xl overflow-hidden cursor-hover group"
     >
+      <motion.div
+        className="pointer-events-none absolute inset-0 z-[1] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        style={{ background: spotlight }}
+      />
       <div className="h-[110px] relative overflow-hidden" style={{ background: p.gradient }}>
         <div
           className="absolute inset-0 opacity-70"

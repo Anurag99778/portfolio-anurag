@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import SplitText from './effects/SplitText.jsx';
 
 export default function SectionHeading({ tag, title }) {
   return (
@@ -13,15 +14,9 @@ export default function SectionHeading({ tag, title }) {
         <span className="w-6 h-[2px] bg-accent-cyan rounded" />
         {tag}
       </motion.span>
-      <motion.h2
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.6 }}
-        transition={{ duration: 0.6, delay: 0.08 }}
-        className="font-display font-extrabold text-[clamp(2rem,5vw,3rem)] leading-[1.1]"
-      >
-        {title}
-      </motion.h2>
+      <h2 className="font-display font-extrabold text-[clamp(2rem,5vw,3rem)] leading-[1.1]">
+        <SplitText text={title} mode="word" stagger={0.08} />
+      </h2>
       <motion.div
         initial={{ width: 0 }}
         whileInView={{ width: 72 }}

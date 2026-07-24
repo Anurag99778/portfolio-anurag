@@ -2,6 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { PORTFOLIO_DATA } from '../data/portfolio.js';
 import { ICONS, PLATFORM_STYLES } from './icons.jsx';
+import Spotlight from './effects/Spotlight.jsx';
+import Meteors from './effects/Meteors.jsx';
+import SplitText from './effects/SplitText.jsx';
+import MovingBorderButton from './effects/MovingBorderButton.jsx';
 
 function useTypewriter(texts) {
   const [text, setText] = useState('');
@@ -43,8 +47,10 @@ export default function Hero() {
   const fade = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section id="hero" ref={sectionRef} className="min-h-screen flex items-center pt-[68px] relative z-[1] px-[6%]">
-      <div className="grid md:grid-cols-2 gap-16 items-center w-full max-w-[1100px] mx-auto">
+    <section id="hero" ref={sectionRef} className="min-h-screen flex items-center pt-[68px] relative z-[1] px-[6%] overflow-hidden">
+      <Spotlight />
+      <Meteors count={16} />
+      <div className="grid md:grid-cols-2 gap-16 items-center w-full max-w-[1100px] mx-auto relative">
         <motion.div style={{ y: textY, opacity: fade }} className="text-center md:text-left order-2 md:order-1">
           <motion.div
             variants={fadeUp} custom={0.5} initial="hidden" animate="show"
@@ -62,12 +68,15 @@ export default function Hero() {
             Hi, I'm
           </motion.div>
 
-          <motion.h1
-            variants={fadeUp} custom={0.68} initial="hidden" animate="show"
-            className="font-display font-extrabold leading-[1.05] tracking-tight text-[clamp(2.3rem,5.5vw,4.1rem)] mb-4"
-          >
-            {personal.name.toUpperCase()}
-          </motion.h1>
+          <h1 className="font-display font-extrabold leading-[1.05] tracking-tight text-[clamp(2.3rem,5.5vw,4.1rem)] mb-4">
+            <SplitText
+              text={personal.name.toUpperCase()}
+              mode="char"
+              triggerOnView={false}
+              delay={0.7}
+              stagger={0.035}
+            />
+          </h1>
 
           <motion.div
             variants={fadeUp} custom={0.78} initial="hidden" animate="show"
@@ -85,15 +94,13 @@ export default function Hero() {
           </motion.p>
 
           <motion.div variants={fadeUp} custom={0.98} initial="hidden" animate="show" className="flex gap-4 flex-wrap justify-center md:justify-start mb-8">
-            <motion.a
+            <MovingBorderButton
               href="#projects"
               onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }); }}
-              whileHover={{ scale: 1.05, y: -2, boxShadow: '0 0 40px rgba(6,182,212,0.65)' }}
-              whileTap={{ scale: 0.97 }}
-              className="px-7 py-3.5 bg-accent-cyan text-black font-bold text-[0.92rem] rounded-xl inline-flex items-center gap-2 shadow-[0_0_24px_rgba(6,182,212,0.35)] cursor-hover"
+              innerClassName="px-7 py-3.5 bg-accent-cyan text-black font-bold text-[0.92rem]"
             >
               Explore My Work <span>→</span>
-            </motion.a>
+            </MovingBorderButton>
             <motion.a
               href={personal.resume}
               download

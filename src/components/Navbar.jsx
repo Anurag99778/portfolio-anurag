@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { PORTFOLIO_DATA } from '../data/portfolio.js';
 
 const LINKS = ['About', 'Experience', 'Projects', 'Skills', 'Achievements', 'Contact'];
@@ -7,7 +7,10 @@ const LINKS = ['About', 'Experience', 'Projects', 'Skills', 'Achievements', 'Con
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState('hero');
+  const [scrolled, setScrolled] = useState(false);
   const initials = PORTFOLIO_DATA.personal.name.split(' ').map((w) => w[0]).join('');
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, 'change', (v) => setScrolled(v > 20));
 
   useEffect(() => {
     const sections = document.querySelectorAll('section[id]');
@@ -33,9 +36,16 @@ export default function Navbar() {
     <>
       <motion.nav
         initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed top-0 left-0 right-0 h-[68px] z-[1000] flex items-center justify-between px-[6%] bg-bg-primary/75 backdrop-blur-xl border-b border-white/[0.08]"
+        animate={{
+          y: 0,
+          opacity: 1,
+          height: scrolled ? 60 : 68,
+          backgroundColor: scrolled ? 'rgba(3,7,18,0.85)' : 'rgba(3,7,18,0.4)',
+          borderColor: scrolled ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.02)',
+          boxShadow: scrolled ? '0 8px 32px rgba(0,0,0,0.35)' : '0 0 0 rgba(0,0,0,0)',
+        }}
+        transition={{ duration: 0.35, ease: 'easeOut' }}
+        className="fixed top-0 left-0 right-0 z-[1000] flex items-center justify-between px-[6%] backdrop-blur-xl border-b"
       >
         <a href="#hero" onClick={goTo('hero')} className="relative w-11 h-11 flex items-center justify-center flex-shrink-0" aria-label="Home">
           <span className="absolute inset-0 rounded-full overflow-hidden">

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PORTFOLIO_DATA } from '../data/portfolio.js';
+import SpotlightCard from './effects/SpotlightCard.jsx';
 
 export default function Contact() {
   const { contact, links } = PORTFOLIO_DATA.personal;
@@ -73,13 +74,15 @@ export default function Contact() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
               whileHover={{ y: -5, borderColor: c.color, boxShadow: `0 12px 40px rgba(0,0,0,0.3), 0 0 28px ${c.color}44`, background: `${c.color}0d` }}
-              className="glass rounded-2xl px-5 py-6 flex items-center gap-4 min-h-[80px] cursor-hover"
+              className="glass rounded-2xl min-h-[80px] cursor-hover block"
             >
-              <span className="text-[1.7rem] leading-none flex-shrink-0">{c.icon}</span>
-              <div>
-                <div className="text-[0.72rem] text-slate-400 uppercase tracking-wider mb-1">{c.label}</div>
-                <div className="font-semibold text-[0.88rem] break-words">{c.val}</div>
-              </div>
+              <SpotlightCard color={c.color} className="rounded-2xl px-5 py-6 flex items-center gap-4 h-full">
+                <span className="text-[1.7rem] leading-none flex-shrink-0">{c.icon}</span>
+                <div>
+                  <div className="text-[0.72rem] text-slate-400 uppercase tracking-wider mb-1">{c.label}</div>
+                  <div className="font-semibold text-[0.88rem] break-words">{c.val}</div>
+                </div>
+              </SpotlightCard>
             </motion.a>
           ))}
         </div>
