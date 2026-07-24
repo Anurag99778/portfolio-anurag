@@ -1,8 +1,13 @@
+import { Fragment } from 'react';
 import { motion } from 'framer-motion';
 
 /**
  * Reveals text word-by-word (or char-by-char) with a blur+rise stagger.
  * Used for headings and hero name so first paint reads like a premium reveal, not a snap-in.
+ *
+ * Each word is wrapped in its own `white-space: nowrap` inline-block so letters
+ * within a word never get split across a line break — only the plain space
+ * character between word-wrappers is a valid wrap point, same as normal text.
  */
 export default function SplitText({
   text,
@@ -15,7 +20,7 @@ export default function SplitText({
   triggerOnView = true,
   duration = 0.7,
 }) {
-  const units = mode === 'char' ? Array.from(text) : text.split(' ');
+  const words = text.split(' ');
 
   const container = {
     hidden: {},
@@ -46,15 +51,23 @@ export default function SplitText({
         {...viewProps}
         style={{ display: 'inline' }}
       >
-        {units.map((u, i) => (
-          <motion.span
-            key={i}
-            variants={child}
-            style={{ display: 'inline-block', whiteSpace: mode === 'char' && u === ' ' ? 'pre' : 'normal' }}
-          >
-            {u}
-            {mode === 'word' && i < units.length - 1 ? ' ' : ''}
-          </motion.span>
+        {words.map((word, wi) => (
+          <Fragment key={wi}>
+            <span style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>
+              {mode === 'char'
+                ? Array.from(word).map((ch, ci) => (
+                    <motion.span key={ci} variants={child} style={{ display: 'inline-block' }}>
+                      {ch}
+                    </motion.span>
+                  ))
+                : (
+                    <motion.span variants={child} style={{ display: 'inline-block' }}>
+                      {word}
+                    </motion.span>
+                  )}
+            </span>
+            {wi < words.length - 1 ? ' ' : ''}
+          </Fragment>
         ))}
       </motion.span>
     </Tag>
